@@ -1,5 +1,3 @@
-using RGSK.Extensions;
-using RGSK.Helpers;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +13,7 @@ namespace RGSK
         [Header("Steering Wheel")]
         [SerializeField] Transform steeringWheel;
         [SerializeField] Axis rotateAxis = Axis.Z;
-        [SerializeField][Range(45, 180)] float maxAngle = 90;
+        [SerializeField][Range(45, 90)] float maxAngle = 90;
         [SerializeField] float rotateSpeed = 5;
         [SerializeField] bool invertRotation;
 
@@ -25,14 +23,14 @@ namespace RGSK
 
         List<ParticleSystem> _exhaustSmoke = new List<ParticleSystem>();
         List<ParticleSystem> _exhaustBackfire = new List<ParticleSystem>();
-        AudioSource _backfireAudiosource;
+        // AudioSource _backfireAudiosource;
         Quaternion _defaultSteeringAngle;
         float _lastBackfire;
 
         public override void Initialize(VehicleController vc)
         {
             base.Initialize(vc);
-            _backfireAudiosource = AudioHelper.CreateAudioSource(null, false, false, false, 1, 1, AudioGroup.Vehicle.ToString(), Vehicle.transform);
+            //_backfireAudiosource = AudioHelper.CreateAudioSource(null, false, false, false, 1, 1, AudioGroup.Vehicle.ToString(), Vehicle.transform);
 
             if (steeringWheel != null)
             {
@@ -154,13 +152,8 @@ namespace RGSK
                 foreach (var p in _exhaustBackfire)
                 {
                     p.Play();
-                    _backfireAudiosource.transform.position = p.transform.position;
                 }
 
-                _backfireAudiosource.clip = RGSKCore.Instance.VehicleSettings.backfireSounds.GetRandom();
-                _backfireAudiosource.volume = Random.Range(0.8f, 1.2f);
-                _backfireAudiosource.pitch = Random.Range(0.8f, 1.2f);
-                _backfireAudiosource.Play();
             }
         }
     }

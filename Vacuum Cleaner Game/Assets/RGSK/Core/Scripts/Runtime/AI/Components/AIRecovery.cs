@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RGSK
@@ -52,7 +50,7 @@ namespace RGSK
                 if (_reverseAttempts > Controller.Behaviour.commonSettings.maxReverseAttempts)
                 {
                     _reverseAttempts = 0;
-                    Controller.Entity?.Repositioner?.Reposition();
+                    //Controller.Entity?.Repositioner?.Reposition();
                 }
             }
 

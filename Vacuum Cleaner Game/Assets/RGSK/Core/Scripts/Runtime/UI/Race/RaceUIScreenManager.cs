@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using RGSK.Helpers;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -35,7 +32,7 @@ namespace RGSK
 
         void OnRaceInitialized()
         {
-            _spectatorMode = RaceManager.Instance.Session.spectatorMode;
+            //_spectatorMode = RaceManager.Instance.Session.spectatorMode;
 
             UIManager.Instance?.CreateScreen(preRaceScreen);
             UIManager.Instance?.CreateScreen(GetRacingStateScreen());

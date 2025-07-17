@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using RGSK.Extensions;
-using RGSK.Helpers;
 
 namespace RGSK
 {
     public class RaceBoard : MonoBehaviour
     {
+
+        /*
         [SerializeField] RaceBoardLayout layout;
         [SerializeField] BoardSize items = BoardSize.Full;
         [SerializeField] BoardSize size = BoardSize.Full;
@@ -292,5 +288,7 @@ namespace RGSK
 
             return img;
         }
+    
+        */
     }
 }

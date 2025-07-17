@@ -1,13 +1,14 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using RGSK.Extensions;
 
 namespace RGSK.Helpers
 {
     public static class UIHelper
     {
+
+
         #region Formatting
         public static string FormatTimeText(float time, TimeFormat format = TimeFormat.MM_SS_FFF, bool addSymbol = false)
         {
@@ -340,7 +341,7 @@ namespace RGSK.Helpers
         public static string FormatSpeedText(float speedInKMH, bool includeUnit = false)
         {
             var newSpeed = ConversionHelper.ConvertSpeed(speedInKMH / 3.6f, RGSKCore.Instance.UISettings.speedUnit, true);
-            var result = Mathf.Abs(newSpeed).ToString();
+            var result = UnityEngine.Mathf.Abs(newSpeed).ToString();
 
             if (includeUnit)
             {
@@ -370,8 +371,8 @@ namespace RGSK.Helpers
 
         public static string FormatPercentageText(float value)
         {
-            var val = Mathf.Clamp(value, 0, value);
-            return $"{Mathf.Round(val)}%";
+            //var val = Mathf.Clamp(value, 0, value);
+            return $"%";
         }
 
         public static string FormatAngleText(float value)
@@ -389,7 +390,7 @@ namespace RGSK.Helpers
 
         public static string FormatOrdinalText(int number, float ordinalSize = -1)
         {
-            return $"{number}{Ordinal(number).AddSizeTags(ordinalSize)}";
+            return $"";
         }
 
         public static string Ordinal(int number)
@@ -757,5 +758,6 @@ namespace RGSK.Helpers
                     }
             }
         }
+
     }
 }

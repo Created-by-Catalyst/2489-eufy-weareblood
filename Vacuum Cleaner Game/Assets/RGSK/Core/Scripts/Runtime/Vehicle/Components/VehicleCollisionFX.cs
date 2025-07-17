@@ -1,5 +1,3 @@
-using RGSK.Extensions;
-using RGSK.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +13,7 @@ namespace RGSK
 
         public override void Initialize(VehicleController vc)
         {
+            /*
             base.Initialize(vc);
 
             _collisionAudiosource = AudioHelper.CreateAudioSource(null, false, false, false, 1, 1, AudioGroup.Vehicle.ToString(), vc.transform);
@@ -31,6 +30,7 @@ namespace RGSK
                     _particles.Add(s, ps);
                 }
             }
+            */
         }
 
         public override void Update()
@@ -48,12 +48,12 @@ namespace RGSK
                 _currentSurface = RGSKCore.Instance.VehicleSettings.fallbackCollisionSurface;
             }
 
-            _collisionAudiosource.transform.localPosition =
-            _scrapeAudiosource.transform.localPosition =
-            Vehicle.transform.InverseTransformPoint(collision.contacts[0].point);
+            //_collisionAudiosource.transform.localPosition =
+            //_scrapeAudiosource.transform.localPosition =
+            //Vehicle.transform.InverseTransformPoint(collision.contacts[0].point);
 
-            _collisionAudiosource.clip = _scrapeAudiosource.clip = null;
-
+            //_collisionAudiosource.clip = _scrapeAudiosource.clip = null;
+            /*
             if (_currentSurface != null)
             {
                 _collisionAudiosource.clip = _currentSurface.hitSounds.GetRandom();
@@ -65,18 +65,19 @@ namespace RGSK
             _collisionAudiosource.Play();
 
             EmitParticles(collision);
-            //PlayerVehicleInput.Instance?.Rumble(Vehicle, collision.relativeVelocity.magnitude * 0.001f, 0.5f);
+            // PlayerVehicleInput.Instance?.Rumble(Vehicle, collision.relativeVelocity.magnitude * 0.001f, 0.5f);
+            */
         }
 
         public void CollisionStay(Collision collision)
         {
-            if (!_scrapeAudiosource.isPlaying)
-            {
-                _scrapeAudiosource.Play();
-            }
+            //if (!_scrapeAudiosource.isPlaying)
+            //{
+            //    _scrapeAudiosource.Play();
+            //}
 
-            _scrapeAudiosource.pitch = Random.Range(0.9f, 1.1f);
-            _scrapeAudiosource.volume = collision.relativeVelocity.magnitude * 0.1f;
+            //_scrapeAudiosource.pitch = Random.Range(0.9f, 1.1f);
+            //_scrapeAudiosource.volume = collision.relativeVelocity.magnitude * 0.1f;
 
             if (collision.relativeVelocity.magnitude > 2)
             {
@@ -86,7 +87,7 @@ namespace RGSK
 
         public void CollisionExit(Collision collision)
         {
-            _scrapeAudiosource.Stop();
+            //_scrapeAudiosource.Stop();
         }
 
         void EmitParticles(Collision collision)

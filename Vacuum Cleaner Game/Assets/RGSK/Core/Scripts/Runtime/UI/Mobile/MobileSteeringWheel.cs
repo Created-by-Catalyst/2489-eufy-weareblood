@@ -1,10 +1,11 @@
-﻿using RGSK.Extensions;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.Layouts;
+using UnityEngine.Events;
 using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.InputSystem.Layouts;
+using RGSK.Extensions;
 
 namespace RGSK
 {
@@ -21,7 +22,7 @@ namespace RGSK
         }
 
         [SerializeField] RectTransform rectTransform;
-        [SerializeField] float maxAngle = 180;
+        [SerializeField] float maxAngle = 90;
         [SerializeField] float recenterSpeed = 200f;
 
         Vector2 _centerPoint;
@@ -45,7 +46,7 @@ namespace RGSK
             var entry = new EventTrigger.Entry();
             var callback = new EventTrigger.TriggerEvent();
             var functionCall = new UnityAction<BaseEventData>(PressEvent);
-
+            
             callback.AddListener(functionCall);
             entry.eventID = EventTriggerType.PointerDown;
             entry.callback = callback;

@@ -1,8 +1,6 @@
-using System.Collections;
+using RGSK.Extensions;
 using System.Collections.Generic;
 using UnityEngine;
-using RGSK.Extensions;
-using RGSK.Helpers;
 
 namespace RGSK
 {
@@ -50,8 +48,8 @@ namespace RGSK
         {
             _vc = GetComponentInParent<VehicleController>();
             _invertAlignment = transform.localPosition.x < 0;
-            _slipAudiosource = AudioHelper.CreateAudioSource(null, false, true, false, 0, 1, AudioGroup.Vehicle.ToString(), transform, "audio");
-            _slipAudiosource.dopplerLevel = 0;
+            //_slipAudiosource = AudioHelper.CreateAudioSource(null, false, true, false, 0, 1, AudioGroup.Vehicle.ToString(), transform, "audio");
+            // _slipAudiosource.dopplerLevel = 0;
 
             WheelCollider.mass = WheelCollider.attachedRigidbody.mass * 0.1f;
 

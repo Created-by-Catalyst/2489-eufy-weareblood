@@ -9,7 +9,7 @@ namespace RGSK
         [Range(0, 1)] public float speed;
         [Range(0, 1)] public float acceleration;
         [Range(0, 1)] public float braking;
-        [Range(0, 10)] public float handling;
+        [Range(0, 1)] public float handling;
 
         [Header("Color")]
         public int color;

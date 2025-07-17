@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Playables;
 using UnityEngine.EventSystems;
+using UnityEngine.Playables;
+using UnityEngine.UI;
 
 namespace RGSK
 {
@@ -46,7 +44,7 @@ namespace RGSK
                 if (championshipBoardLayout != null)
                 {
                     _championshipBoard = Instantiate(raceBoard, boardParent, false);
-                    _championshipBoard.Initialize(championshipBoardLayout, BoardSortOrder.ChampionshipStandings);
+                    //_championshipBoard.Initialize(championshipBoardLayout, BoardSortOrder.ChampionshipStandings);
                 }
             }
         }
@@ -88,11 +86,11 @@ namespace RGSK
 
                 if (_raceBoard != null && _championshipBoard != null)
                 {
-                    if (!_championshipBoard.IsVisible)
+                    if (!true)
                     {
-                        _raceBoard.ToggleVisible(false);
-                        _championshipBoard.ToggleVisible(true);
-                        _championshipBoard.Refresh();
+                        // _raceBoard.ToggleVisible(false);
+                        // _championshipBoard.ToggleVisible(true);
+                        // _championshipBoard.Refresh();
                         return;
                     }
                 }
@@ -154,8 +152,8 @@ namespace RGSK
         {
             if (_raceBoard != null && _championshipBoard != null)
             {
-                _raceBoard.ToggleVisible(true);
-                _championshipBoard.ToggleVisible(false);
+                // _raceBoard.ToggleVisible(true);
+                //_championshipBoard.ToggleVisible(false);
             }
         }
 

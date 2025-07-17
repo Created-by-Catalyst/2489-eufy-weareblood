@@ -7,7 +7,7 @@ namespace RGSK
         void OnTriggerEnter(Collider col)
         {
             var e = col.GetComponentInParent<RGSKEntity>();
-            e?.Repositioner?.Reposition();
+            //e?.Repositioner?.Reposition();
         }
     }
 }

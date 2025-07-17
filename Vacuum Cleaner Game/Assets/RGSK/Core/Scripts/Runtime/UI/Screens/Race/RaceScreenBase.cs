@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -22,7 +20,7 @@ namespace RGSK
         public override void Open()
         {
             base.Open();
-            _raceBoard?.Refresh();
+            // _raceBoard?.Refresh();
         }
 
         protected override void OnEnable()
@@ -61,7 +59,7 @@ namespace RGSK
                     if (raceBoard != null && raceBoardLayout != null)
                     {
                         _raceBoard = Instantiate(raceBoard, boardParent, false);
-                        _raceBoard.Initialize(raceBoardLayout);
+                        // _raceBoard.Initialize(raceBoardLayout);
                     }
                 }
                 else

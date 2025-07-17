@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -106,13 +105,13 @@ namespace RGSK
                 {
                     case SortOrder.Ascending:
                         {
-                            RacingList = RaceManager.Instance.Entities.Items.OrderBy(x => GetRankableValue(x)).ToList();
+                            // RacingList = RaceManager.Instance.Entities.Items.OrderBy(x => GetRankableValue(x)).ToList();
                             break;
                         }
 
                     case SortOrder.Descending:
                         {
-                            RacingList = RaceManager.Instance.Entities.Items.OrderByDescending(x => GetRankableValue(x)).ToList();
+                            // RacingList = RaceManager.Instance.Entities.Items.OrderByDescending(x => GetRankableValue(x)).ToList();
                             break;
                         }
                 }

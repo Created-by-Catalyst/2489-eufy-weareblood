@@ -1,17 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
-using RGSK.Helpers;
-using RGSK.Extensions;
-using TMPro;
-
 namespace RGSK
 {
     public class RaceRewardsScreen : UIScreen
     {
+
+        /*
         [SerializeField] Button continueButton;
 
         [Header("Currency & XP")]
@@ -111,5 +103,7 @@ namespace RGSK
 
             SceneLoadManager.LoadMainScene();
         }
+    
+        */
     }
 }

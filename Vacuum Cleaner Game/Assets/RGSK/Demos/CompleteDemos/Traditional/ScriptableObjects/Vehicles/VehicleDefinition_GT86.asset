@@ -27,8 +27,8 @@ MonoBehaviour:
   vehicleClass: {fileID: 0}
   defaultStats:
     speed: 0.4
-    acceleration: 1
-    braking: 0.218
-    handling: 10
+    acceleration: 0.45
+    braking: 0.75
+    handling: 0.65
     color: 3
   year: 2024

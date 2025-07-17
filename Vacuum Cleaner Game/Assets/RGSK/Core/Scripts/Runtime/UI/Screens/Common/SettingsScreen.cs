@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace RGSK
@@ -15,7 +13,7 @@ namespace RGSK
             //hide the profile tab when in race environments
             if (profileButton != null)
             {
-                profileButton.gameObject.SetActive(!RaceManager.Instance.Initialized);
+                //profileButton.gameObject.SetActive(!RaceManager.Instance.Initialized);
             }
         }
 

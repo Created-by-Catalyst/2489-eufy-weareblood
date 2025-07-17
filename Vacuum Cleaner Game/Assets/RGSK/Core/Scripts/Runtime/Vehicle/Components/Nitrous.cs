@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RGSK.Helpers;
 
 namespace RGSK
 {
@@ -31,7 +29,7 @@ namespace RGSK
         public float Force => _active && capacity > 0 ? strength : 1;
 
         List<ParticleSystem> _nitroParticles = new List<ParticleSystem>();
-        AudioSource _audiosource;
+        // AudioSource _audiosource;
         float _activeTime;
         float _lastActiveTime;
         bool _active;
@@ -41,15 +39,15 @@ namespace RGSK
         {
             base.Initialize(vc);
 
-            _audiosource = AudioHelper.CreateAudioSource(
-                            RGSKCore.Instance.VehicleSettings.nitroSound,
-                            false,
-                            true,
-                            false,
-                            1,
-                            1,
-                            AudioGroup.Vehicle.ToString(),
-                            Vehicle.transform);
+            //_audiosource = AudioHelper.CreateAudioSource(
+            //                RGSKCore.Instance.VehicleSettings.nitroSound,
+            //                false,
+            //                true,
+            //                false,
+            //                1,
+            //                1,
+            //                AudioGroup.Vehicle.ToString(),
+            //                Vehicle.transform);
 
             foreach (var e in vc.GetComponentsInChildren<VehicleExhaustEffect>())
             {
@@ -78,10 +76,7 @@ namespace RGSK
 
                 capacity = Mathf.MoveTowards(capacity, 0, (1 / depletionRate) * Time.deltaTime);
 
-                if (!_audiosource.isPlaying)
-                {
-                    _audiosource.Play();
-                }
+
 
                 ToggleParticles(true);
             }
@@ -93,7 +88,7 @@ namespace RGSK
                 }
 
                 _activeTime = 0;
-                _audiosource.Stop();
+                // _audiosource.Stop();
                 ToggleParticles(false);
             }
         }

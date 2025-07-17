@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using RGSK.Extensions;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -27,7 +25,7 @@ namespace RGSK
             InputManager.BoostEvent += OnBoost;
             InputManager.ShiftUpEvent += OnShiftUp;
             InputManager.ShiftDownEvent += OnShiftDown;
-            InputManager.RepositionPerformedEvent += OnReposition;
+            //InputManager.RepositionPerformedEvent += OnReposition;
             InputManager.HornStartEvent += OnHornStart;
             InputManager.HornCancelEvent += OnHornEnd;
             InputManager.HeadlightEvent += OnToggleHeadlights;
@@ -45,7 +43,7 @@ namespace RGSK
             InputManager.BoostEvent -= OnBoost;
             InputManager.ShiftUpEvent -= OnShiftUp;
             InputManager.ShiftDownEvent -= OnShiftDown;
-            InputManager.RepositionPerformedEvent -= OnReposition;
+            //InputManager.RepositionPerformedEvent -= OnReposition;
             InputManager.HornStartEvent -= OnHornStart;
             InputManager.HornCancelEvent -= OnHornEnd;
             InputManager.HeadlightEvent -= OnToggleHeadlights;
@@ -134,7 +132,7 @@ namespace RGSK
         void OnSteer(float value) => _steerInput = value;
         void OnHandbrake(float value) => _handbrakeInput = value;
         void OnBoost(float value) => _nitrousInput = value;
-        void OnReposition() => _repositioner?.Reposition();
+        //void OnReposition() => 10;
 
         void OnToggleHeadlights()
         {

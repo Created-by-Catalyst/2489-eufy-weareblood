@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Audio;
-using System.Collections;
 
 namespace RGSK.Helpers
 {
+
     public static class AudioHelper
     {
         public const string MasterVolumeParam = "master_volume";

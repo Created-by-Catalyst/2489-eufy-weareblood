@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using RGSK.Extensions;
-using System.Linq;
-using RGSK.Helpers;
-
-namespace RGSK
+﻿namespace RGSK
 {
     public class Repositioner : RGSKEntityComponent
-    {
+    {/*
         RepositionSettings _settings => RGSKCore.Instance.GeneralSettings.repositionSettings;
         Vector3 _size = new Vector3(2, 1, 4);
         List<Renderer> _renderers;
@@ -211,5 +203,7 @@ namespace RGSK
                 r.enabled = _rendererActiveStates[r];
             }
         }
+    }
+        */
     }
 }

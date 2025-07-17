@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using RGSK.Helpers;
+using TMPro;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -75,14 +73,14 @@ namespace RGSK
             {
                 case SessionTimerType.PersonalBestLapTime:
                     {
-                        text?.SetText(UIHelper.FormatTimeText(RaceManager.Instance.Track.GetBestLap(), format));
+                        //text?.SetText(UIHelper.FormatTimeText(RaceManager.Instance.Track.GetBestLap(), format));
                         break;
                     }
 
                 case SessionTimerType.FastestLapInSession:
                     {
-                        var value = RaceManager.Instance.GetCompetitorWithBestLap()?.GetBestLapTime() ?? 0f;
-                        text?.SetText(UIHelper.FormatTimeText(value, format));
+                        // var value = RaceManager.Instance.GetCompetitorWithBestLap()?.GetBestLapTime() ?? 0f;
+                        // text?.SetText(UIHelper.FormatTimeText(value, format));
                         break;
                     }
             }

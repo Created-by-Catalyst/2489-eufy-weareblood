@@ -1,6 +1,6 @@
-using UnityEngine;
-using TMPro;
 using RGSK.Helpers;
+using TMPro;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -62,7 +62,7 @@ namespace RGSK
         {
             if (Entity == null || Entity.Competitor == null)
                 return;
-
+            /*
             lapTimeText?.SetText(UIHelper.FormatTimeText(Entity.Competitor.GetLapTime(), RGSKCore.Instance.UISettings.raceTimerFormat));
             totalTimeText?.SetText(UIHelper.FormatTimeText(Entity.Competitor.TotalRaceTime, RGSKCore.Instance.UISettings.raceTimerFormat));
             racePercentageText?.SetText(UIHelper.FormatPercentageText(Entity.Competitor.RacePercentage));
@@ -71,7 +71,7 @@ namespace RGSK
             distanceRemainingText?.SetText(UIHelper.FormatDistanceText(Entity.Competitor.GetRemainingDistance()));
             averageSpeedText?.SetText(UIHelper.FormatSpeedText(Entity.Competitor.AverageSpeed, true));
             topSpeedText?.SetText(UIHelper.FormatSpeedText(Entity.Competitor.TopSpeed, true));
-
+            */
             if (Time.time > _nextGapUpdate)
             {
                 _nextGapUpdate = Time.time + 1;

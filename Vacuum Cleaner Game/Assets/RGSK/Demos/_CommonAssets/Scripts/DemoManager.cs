@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 namespace RGSK
 {
@@ -49,7 +48,7 @@ namespace RGSK
                 vehicleSettings = RGSKCore.Instance.VehicleSettings
             };
 
-            gameObject.AddComponent<DontDestroyOnLoad>();
+            //gameObject.AddComponent<DontDestroyOnLoad>();
         }
 
         public void LoadDemo(string id)
