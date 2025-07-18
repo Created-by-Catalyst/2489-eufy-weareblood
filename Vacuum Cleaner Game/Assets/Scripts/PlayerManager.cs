@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
 
     VehicleController vehicleController;
+    Rigidbody rigidbody;
 
 
     [SerializeField]
@@ -18,21 +19,19 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         vehicleController = GetComponent<VehicleController>();
+        rigidbody = GetComponent<Rigidbody>();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Stain")
         {
             StainManager stainManager = other.gameObject.GetComponentInParent<StainManager>();
+            Destroy(other);
 
-            stainManager.CleanStain();
-            GameManager.instance.AddScore(stainManager.scoreValue);
+            rigidbody.linearVelocity = rigidbody.linearVelocity * 0.7f;
 
-            StartCoroutine(PickupStain());
-            if (cameraFovCoroutine != null) StopCoroutine(cameraFovCoroutine);
-            cameraFovCoroutine = StartCoroutine(CameraFovPull());
+            StartCoroutine(PickupStain(stainManager));
         }
     }
 
@@ -67,8 +66,16 @@ public class PlayerManager : MonoBehaviour
 
 
 
-    IEnumerator PickupStain()
+    IEnumerator PickupStain(StainManager stainManager)
     {
+        yield return new WaitForSeconds(0.4f);
+
+        GameManager.instance.AddScore(stainManager.scoreValue);
+        stainManager.CleanStain();
+
+
+        if (cameraFovCoroutine != null) StopCoroutine(cameraFovCoroutine);
+        cameraFovCoroutine = StartCoroutine(CameraFovPull());
         vehicleController.NitrousInput = 1;
         yield return new WaitForSeconds(0.1f);
         vehicleController.NitrousInput = 0;
