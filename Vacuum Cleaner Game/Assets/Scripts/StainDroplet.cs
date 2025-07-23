@@ -18,7 +18,11 @@ public class StainDroplet : MonoBehaviour
         print(other);
         GameObject stain = Instantiate(stainPrefab);
 
-        stain.transform.position = new Vector3(transform.position.x, 1.66f, transform.position.z);
+        Vector3 contactPoint = other.ClosestPoint(transform.position);
+
+        //float stainWidth = stainPrefab.GetComponentInChildren<MeshFilter>().sharedMesh.bounds.size.y;
+
+        stain.transform.position = contactPoint + new Vector3(0, -0.2f, 0);
 
         Destroy(gameObject);
     }
