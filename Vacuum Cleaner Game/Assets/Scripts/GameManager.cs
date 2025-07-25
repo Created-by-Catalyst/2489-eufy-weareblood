@@ -1,6 +1,7 @@
+using RGSK;
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     HUDManager hudManager;
+    [SerializeField]
+    UIController uiController;
 
     [SerializeField]
     GameObject[] playerVehicles;
@@ -20,10 +23,32 @@ public class GameManager : MonoBehaviour
     Animator[] messcots;
 
 
+    [SerializeField]
+    public InputActionAsset actionMap;
+
+
+    [SerializeField]
+    public InputActions _actions;
     private void Awake()
     {
         instance = this;
+
+        _actions = new InputActions();
+
+        _actions.asset = actionMap;
+
+        _actions.Vehicle.Enable();
+
+        _actions.Vehicle.Throttle.performed += OnThrottle;
+
     }
+
+    void OnThrottle(InputAction.CallbackContext context)
+    {
+        //ThrottleInput = context.ReadValue<float>();
+        uiController.PedalPressed();
+    }
+
 
     private void Start()
     {
