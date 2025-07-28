@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -12,6 +13,46 @@ public class UIController : MonoBehaviour
 
     [SerializeField]
     GameObject splashScreen;
+
+    [SerializeField]
+    WebcamDisplay webcamDisplay;
+
+    [SerializeField]
+    Sprite[] levelDescriptions;
+
+    [SerializeField]
+    Sprite[] levelSplashes;
+
+
+    [SerializeField]
+    Image levelDesc;
+    [SerializeField]
+    Image levelSplash;
+
+
+    [SerializeField]
+    OverviewScreen overviewScreen;
+
+
+
+    public void GoToNextLevel()
+    {
+        levelDesc.sprite = levelDescriptions[GameManager.instance.currentSection];
+        levelSplash.sprite = levelSplashes[GameManager.instance.currentSection];
+        uiAnimations.SetTrigger("TransitionLevel");
+    }
+
+    public void LoadNextLevel()
+    {
+        GameManager.instance.PauseControl();
+        GameManager.instance.LevelLoadTransition();
+    }
+
+    public void NextLevelLoaded()
+    {
+        overviewScreen.ShowOverview();
+    }
+
 
     public void CameraSceneLoaded()
     {
@@ -33,14 +74,25 @@ public class UIController : MonoBehaviour
             yield return null;
         }
 
+        webcamDisplay.CaptureImage();
+
         //Debug.Log("Countdown complete!");
         uiAnimations.SetTrigger("PhotoTaken");
 
     }
 
+    public void ResetPedalTrigger()
+    {
+        uiAnimations.ResetTrigger("PedalPressed");
+    }
+
     public void PedalPressed()
     {
+        print("pedal pressed");
         uiAnimations.SetTrigger("PedalPressed");
+        overviewScreen.HideOverview();
     }
+
+
 
 }

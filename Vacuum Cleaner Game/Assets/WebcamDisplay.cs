@@ -8,6 +8,9 @@ public class WebcamDisplay : MonoBehaviour
     [SerializeField]
     RawImage rawImage;
 
+    [SerializeField]
+    RawImage capturedImageDisplay;
+
     void Start()
     {
 
@@ -27,6 +30,20 @@ public class WebcamDisplay : MonoBehaviour
         {
             Debug.LogWarning("No webcam detected.");
         }
+    }
+
+
+    public void CaptureImage()
+    {
+        // Create Texture2D the size of the webcam feed
+        Texture2D snapshot = new Texture2D(webcamTexture.width, webcamTexture.height, TextureFormat.RGB24, false);
+
+        // Read pixels from webcam and apply them to Texture2D
+        snapshot.SetPixels(webcamTexture.GetPixels());
+        snapshot.Apply();
+
+        // Assign the captured texture to the other RawImage
+        capturedImageDisplay.texture = snapshot;
     }
 
     void OnDisable()

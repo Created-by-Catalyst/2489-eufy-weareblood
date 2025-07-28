@@ -15,7 +15,6 @@ public class StainDroplet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other);
         GameObject stain = Instantiate(stainPrefab);
 
         Vector3 contactPoint = other.ClosestPoint(transform.position);

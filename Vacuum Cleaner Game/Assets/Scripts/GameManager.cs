@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int score = 0;
 
-    int currentSection = 0;
+    public int currentSection = 0;
 
     [SerializeField]
     HUDManager hudManager;
@@ -43,6 +43,29 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        PauseControl();
+    }
+
+
+    public void PauseControl()
+    {
+        foreach (var vehicle in playerVehicles)
+        {
+            vehicle.GetComponent<VehicleController>().enabled = false;
+        }
+    }
+
+    public void UnpauseControl()
+    {
+        foreach (var vehicle in playerVehicles)
+        {
+            vehicle.GetComponent<VehicleController>().enabled = true;
+        }
+    }
+
+
     void OnThrottle(InputAction.CallbackContext context)
     {
         //ThrottleInput = context.ReadValue<float>();
@@ -50,9 +73,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void Start()
+    public void StartGame()
     {
         StartCoroutine(StartTimer(startTime));
+        UnpauseControl();
     }
 
     public void AddScore(int scoreToAdd)
@@ -66,6 +90,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartTimer(float time)
     {
+        messcots[currentSection].SetInteger("Path", currentSection);
+
         remainingTime = time;
 
         while (remainingTime > 0)
@@ -84,14 +110,17 @@ public class GameManager : MonoBehaviour
     {
         if (currentSection == 2) return;
 
+        uiController.GoToNextLevel();
+
+    }
+
+    public void LevelLoadTransition()
+    {
         playerVehicles[currentSection].SetActive(false);
         playerCameras[currentSection].SetActive(false);
         currentSection++;
         playerCameras[currentSection].SetActive(true);
         playerVehicles[currentSection].SetActive(true);
-        StartCoroutine(StartTimer(startTime));
-
-        messcots[currentSection].SetInteger("Path", currentSection);
     }
 
 

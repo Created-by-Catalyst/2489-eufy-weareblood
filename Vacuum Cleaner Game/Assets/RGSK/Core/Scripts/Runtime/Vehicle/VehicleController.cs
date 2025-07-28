@@ -75,7 +75,6 @@ public class VehicleController : RGSKEntityComponent
         Burnout = !IsAutoReverse && CurrentSpeed < 2 && ThrottleInput > 0.9f && BrakeInput > 0.9f;
         AutoReverse();
 
-        print(SteerInput);
     }
 
     public float ThrottleInput

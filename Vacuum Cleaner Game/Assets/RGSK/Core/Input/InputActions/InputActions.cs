@@ -79,7 +79,7 @@ namespace RGSK
         /// <summary>
         /// Provides access to the underlying asset instance.
         /// </summary>
-        public InputActionAsset asset { get; set; }
+        public InputActionAsset asset { get; set;  }
 
         /// <summary>
         /// Constructs a new instance.
