@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
 
-        GameManager.instance.AddScore(stainManager.scoreValue);
+        GameManager.instance.AddScore(stainManager.scoreValue, stainManager.stainTier, stainManager.description);
         stainManager.CleanStain();
 
 

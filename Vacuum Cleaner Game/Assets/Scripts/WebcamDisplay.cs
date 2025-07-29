@@ -9,7 +9,7 @@ public class WebcamDisplay : MonoBehaviour
     RawImage rawImage;
 
     [SerializeField]
-    RawImage capturedImageDisplay;
+    RawImage[] capturedImageDisplay;
 
     void Start()
     {
@@ -43,7 +43,11 @@ public class WebcamDisplay : MonoBehaviour
         snapshot.Apply();
 
         // Assign the captured texture to the other RawImage
-        capturedImageDisplay.texture = snapshot;
+
+        foreach (var displayImage in capturedImageDisplay)
+        {
+            displayImage.texture = snapshot;
+        }
     }
 
     void OnDisable()

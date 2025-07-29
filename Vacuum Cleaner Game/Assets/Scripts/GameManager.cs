@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PauseControl();
+
+
+        //DEBUG
+        //StartGame();
     }
 
 
@@ -76,13 +80,12 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(StartTimer(startTime));
-        UnpauseControl();
     }
 
-    public void AddScore(int scoreToAdd)
+    public void AddScore(int scoreToAdd, int stainTier, string description)
     {
         score += scoreToAdd;
-        hudManager.UpdateScoreText(score);
+        hudManager.StainCollected(score, stainTier, description);
     }
 
     float startTime = 45f; // seconds
@@ -90,9 +93,27 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartTimer(float time)
     {
+
+        remainingTime = 4;
+        while (remainingTime >= 0)
+        {
+            remainingTime -= Time.deltaTime;
+            hudManager.UpdateCountdownText((int)remainingTime);
+            yield return null;
+        }
+
+
+
+        hudManager.UpdateCountdownText(-1);
+
+
         messcots[currentSection].SetInteger("Path", currentSection);
 
-        remainingTime = time;
+
+
+        UnpauseControl();
+
+        remainingTime = time + 1;
 
         while (remainingTime > 0)
         {
@@ -102,17 +123,23 @@ public class GameManager : MonoBehaviour
         }
         //Debug.Log("Countdown complete!");
 
-        NextSection();
+        FinishLevel();
 
     }
 
-    void NextSection()
+    void FinishLevel()
+    {
+        PauseControl();
+        uiController.ShowResults();
+    }
+
+    public void GoToNextLevel()
     {
         if (currentSection == 2) return;
 
         uiController.GoToNextLevel();
-
     }
+
 
     public void LevelLoadTransition()
     {

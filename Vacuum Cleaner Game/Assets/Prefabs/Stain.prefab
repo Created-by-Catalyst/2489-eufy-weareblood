@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a509255a9ab476a4b8ff1835c1d0c0dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stainTier: 0
   scoreValue: 10
+  description: "Tackle Tough Stains with the HydroJet\u2122 System!"
 --- !u!1 &973735053013819723
 GameObject:
   m_ObjectHideFlags: 0
