@@ -90,7 +90,7 @@ public class UIController : MonoBehaviour
     {
         print("pedal pressed");
         uiAnimations.SetTrigger("PedalPressed");
-        overviewScreen.HideOverview();
+        //overviewScreen.HideOverview();
         overviewScreen.HideResults();
     }
 

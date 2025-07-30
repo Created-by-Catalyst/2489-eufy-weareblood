@@ -1367,6 +1367,9 @@ MonoBehaviour:
   thicknessModifier:
     overrideState: 1
     value: 2.33
+  zBias:
+    overrideState: 0
+    value: 0.0001
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -1400,7 +1403,7 @@ MonoBehaviour:
     value: 1
   softKnee:
     overrideState: 1
-    value: 0.5
+    value: 0.202
   clamp:
     overrideState: 1
     value: 65472

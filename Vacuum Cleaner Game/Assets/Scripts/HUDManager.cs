@@ -1,9 +1,13 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class HUDManager : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject ingameHUD;
 
     [SerializeField]
     TMP_Text popupMessages;
@@ -22,12 +26,37 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     BlinkLoop[] messes;
 
+    [SerializeField]
+    Sprite[] levelIcons;
+
+    public void UpdateLevelIcons()
+    {
+        if (GameManager.instance.currentSection == 0) return;
+
+        for (int i = 0; i < messes.Length; i++)
+        {
+            messes[i].GetComponent<Image>().sprite = levelIcons[((GameManager.instance.currentSection - 1) * 3) + i];
+        }
+    }
+
 
     public void StainCollected(int newScore, int stainTier, string description)
     {
         scoreText.text = "Score: " + newScore.ToString();
         messes[stainTier].BlinkCycle();
+        StopAllCoroutines();
+
+        StartCoroutine(PopUpMessage(description));
+    }
+
+    IEnumerator PopUpMessage(string description)
+    {
         popupMessages.text = description;
+
+        yield return new WaitForSeconds(2);
+
+
+        popupMessages.text = "";
     }
 
     public void UpdateTimeText(float newTime)
@@ -39,7 +68,7 @@ public class HUDManager : MonoBehaviour
 
     public void UpdateCountdownText(int newTime)
     {
-        if(newTime > 0)
+        if (newTime > 0)
         {
             countdownText.fontSize = 128;
             countdownText.text = newTime.ToString() + "..";
@@ -51,7 +80,7 @@ public class HUDManager : MonoBehaviour
         }
 
 
-        if(newTime == -1)
+        if (newTime == -1)
         {
             countdownText.text = "";
         }

@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class MesscotManager : MonoBehaviour
 {
-    public int path = 1;
+    [HideInInspector]
+    public int path = 3;
 
     private void Awake()
     {

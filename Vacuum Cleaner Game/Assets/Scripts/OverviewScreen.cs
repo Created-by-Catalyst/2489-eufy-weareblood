@@ -31,17 +31,19 @@ public class OverviewScreen : MonoBehaviour
         overviewAnim.GetComponent<Image>().sprite = overviewSprites[level];
 
         overviewAnim.SetBool("OverviewShowing", true);
-        pressPedalHint.SetActive(true);
+        //pressPedalHint.SetActive(true);
+
+        Invoke("HideOverview", 6.5f);
     }
 
     public void HideOverview()
     {
         int level = GameManager.instance.currentSection;
 
-        if(overviewAnim.GetBool("OverviewShowing") == true)
+        if (overviewAnim.GetBool("OverviewShowing") == true)
         {
             overviewAnim.SetBool("OverviewShowing", false);
-            pressPedalHint.SetActive(false);
+            //pressPedalHint.SetActive(false);
 
             GameManager.instance.StartGame();
         }

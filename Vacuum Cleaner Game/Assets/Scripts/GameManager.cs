@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
 
         //DEBUG
-        //StartGame();
+        StartGame();
     }
 
 
@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
 
         remainingTime = time + 1;
 
+        hudManager.ingameHUD.SetActive(true);
+
         while (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
@@ -148,6 +150,9 @@ public class GameManager : MonoBehaviour
         currentSection++;
         playerCameras[currentSection].SetActive(true);
         playerVehicles[currentSection].SetActive(true);
+
+        hudManager.ingameHUD.SetActive(false);
+        hudManager.UpdateLevelIcons();
     }
 
 
