@@ -27,26 +27,48 @@ public class MesscotManager : MonoBehaviour
 
 
     private Vector3 lastPosition;
-    float rotationSpeed = 30f;
+    float rotationSpeed = 10f;
 
 
     private float lastYRotation;
     public enum RotationDirection { Forward, Left, Right }
     public RotationDirection currentDirection;
 
-    float threshold = 0.8f; // minimum angle delta to count as turning
 
     void Start()
     {
-        lastYRotation = transform.eulerAngles.y;
+        lastY = transform.eulerAngles.y;
         lastPosition = transform.position;
     }
 
+    float maxRotationSpeed = 90f; // degrees per second
+    float left;  // 0 to 1
+    float right; // 0 to 1
+
+    private float lastY;
 
 
+    public float slerpSpeed = 5f;
+    public float smoothingSpeed = 7f;
+
+    private Quaternion lastRotation;
+
+    float maxSpeed = 10f;
+    float normalizedSpeed;
 
     void FixedUpdate()
     {
+        //GET SPEED
+        //Vector3 delta = transform.position - lastPosition;
+        //float speed = delta.magnitude / Time.deltaTime;
+
+        //normalizedSpeed = Mathf.Clamp01(speed / maxSpeed);
+
+
+        //messcotAnimator.SetLayerWeight(4, normalizedSpeed / 2);
+
+
+        //ROTATE BASED ON DIRECTION
         Vector3 direction = transform.position - lastPosition;
 
         if (direction.sqrMagnitude > 0.001f)
@@ -59,26 +81,37 @@ public class MesscotManager : MonoBehaviour
 
 
 
-        float currentY = transform.eulerAngles.y;
-        float deltaY = Mathf.DeltaAngle(lastYRotation, currentY); // handles wraparound
 
-        if (Mathf.Abs(deltaY) < threshold)
-        {
-            currentDirection = RotationDirection.Forward;
-            messcotAnimator.SetInteger("Direction", 0);
-        }
-        else if (deltaY > 0)
-        {
-            currentDirection = RotationDirection.Right;
-            messcotAnimator.SetInteger("Direction", 1);
-        }
-        else
-        {
-            currentDirection = RotationDirection.Left;
-            messcotAnimator.SetInteger("Direction", 2);
-        }
+        //ANIMATION BASED ON ROTATION
 
-        lastYRotation = currentY;
+        Quaternion currentRotation = transform.rotation;
+        Quaternion smoothedRotation = Quaternion.Slerp(lastRotation, currentRotation, Time.deltaTime * slerpSpeed);
+
+        // Compute the signed delta angle on the Y axis
+        float lastY = lastRotation.eulerAngles.y;
+        float currentY = smoothedRotation.eulerAngles.y;
+
+        float deltaY = Mathf.DeltaAngle(lastY, currentY) * 20;
+
+        // Normalize delta to [-1, 1]
+        float normalized = Mathf.Clamp(deltaY / maxRotationSpeed, -1f, 1f);
+
+
+        float targetLeft = Mathf.Clamp01(-normalized);
+        float targetRight = Mathf.Clamp01(normalized);
+
+        // Assign left/right strengths
+        left = Mathf.Lerp(left, targetLeft, Time.deltaTime * smoothingSpeed);
+        right = Mathf.Lerp(right, targetRight, Time.deltaTime * smoothingSpeed);
+
+        // Store the smoothed rotation for next frame
+        lastRotation = smoothedRotation;
+
+        //messcotAnimator.SetLayerWeight(3, 1 - (left + right));
+
+        messcotAnimator.SetLayerWeight(2, left);
+        messcotAnimator.SetLayerWeight(3, right);
+
     }
 
 }

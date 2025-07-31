@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
 
         //DEBUG
-        StartGame();
+        //StartGame();
     }
 
 
@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
         foreach (var vehicle in playerVehicles)
         {
             vehicle.GetComponent<VehicleController>().enabled = false;
+            vehicle.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
         foreach (var vehicle in playerVehicles)
         {
             vehicle.GetComponent<VehicleController>().enabled = true;
+            vehicle.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

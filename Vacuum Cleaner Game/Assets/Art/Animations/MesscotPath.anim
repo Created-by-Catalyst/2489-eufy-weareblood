@@ -1458,7 +1458,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 44.883335
+  - time: 45.15
     functionName: PlayAnimation
     data: LieDown
     objectReferenceParameter: {fileID: 0}
