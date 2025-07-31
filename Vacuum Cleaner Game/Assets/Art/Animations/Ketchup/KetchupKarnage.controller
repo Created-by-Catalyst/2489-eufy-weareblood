@@ -7,7 +7,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: StartRun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1243845688877163675}
   m_Solo: 0
@@ -195,7 +198,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: BigWave
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6770554518386310803}
   m_Solo: 0
@@ -318,7 +324,25 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: KetchupKarnage
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: BigWave
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: StartRun
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Direction
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -346,22 +370,22 @@ AnimatorStateMachine:
     m_Position: {x: -750, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6770554518386310803}
-    m_Position: {x: -520, y: -320, z: 0}
+    m_Position: {x: -290, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8534837351063238120}
     m_Position: {x: -290, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1243845688877163675}
-    m_Position: {x: -60, y: -320, z: 0}
+    m_Position: {x: 220, y: -740, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4909860954651214078}
     m_Position: {x: 180, y: -320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3593239787856627575}
-    m_Position: {x: 640, y: -320, z: 0}
+    m_Position: {x: -10, y: -900, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7204729361146288551}
-    m_Position: {x: 870, y: -320, z: 0}
+    m_Position: {x: 520, y: -870, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8772517684569402329}
     m_Position: {x: 1100, y: -320, z: 0}
@@ -398,7 +422,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: -730, y: 70, z: 0}
   m_ExitPosition: {x: 1080, y: 160, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 8666000347322249942}
+  m_DefaultState: {fileID: 8534837351063238120}
 --- !u!1102 &290279124773995305
 AnimatorState:
   serializedVersion: 6

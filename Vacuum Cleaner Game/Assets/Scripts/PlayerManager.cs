@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
             StainManager stainManager = other.gameObject.GetComponentInParent<StainManager>();
             Destroy(other);
 
-            rigidbody.linearVelocity = rigidbody.linearVelocity * 0.7f;
+            rigidbody.linearVelocity = rigidbody.linearVelocity * 0.6f;
 
             StartCoroutine(PickupStain(stainManager));
         }
@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator PickupStain(StainManager stainManager)
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
 
         GameManager.instance.AddScore(stainManager.scoreValue, stainManager.stainTier, stainManager.description);
         stainManager.CleanStain();
@@ -77,7 +77,7 @@ public class PlayerManager : MonoBehaviour
         if (cameraFovCoroutine != null) StopCoroutine(cameraFovCoroutine);
         cameraFovCoroutine = StartCoroutine(CameraFovPull());
         vehicleController.NitrousInput = 1;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         vehicleController.NitrousInput = 0;
 
     }

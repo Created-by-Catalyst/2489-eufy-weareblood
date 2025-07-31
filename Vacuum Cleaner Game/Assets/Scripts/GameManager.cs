@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public int score = 0;
 
-    public int currentSection = 0;
+    public int currentSection = 1;
 
     [SerializeField]
     HUDManager hudManager;

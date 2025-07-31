@@ -28,10 +28,19 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.56666666
+        value: {x: 21.6, y: 8.13, z: -43.3}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 1.4
         value: {x: 14.6, y: 8.13, z: -55.6}
-        inSlope: {x: -8.85, y: 0, z: -8.800001}
-        outSlope: {x: -8.85, y: 0, z: -8.800001}
+        inSlope: {x: -12.348837, y: 0, z: -12.279071}
+        outSlope: {x: -12.348837, y: 0, z: -12.279071}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -39,8 +48,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 2
         value: {x: 3.9, y: 8.13, z: -60.9}
-        inSlope: {x: -10, y: 0, z: -8.235294}
-        outSlope: {x: -10, y: 0, z: -8.235294}
+        inSlope: {x: -12.966103, y: 0, z: -10.677966}
+        outSlope: {x: -12.966103, y: 0, z: -10.677966}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -356,10 +365,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.56666666
+        value: 21.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.4
         value: 14.6
-        inSlope: -8.85
-        outSlope: -8.85
+        inSlope: -12.348837
+        outSlope: -12.348837
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -367,8 +385,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 2
         value: 3.9
-        inSlope: -10
-        outSlope: -10
+        inSlope: -12.966103
+        outSlope: -12.966103
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -647,7 +665,16 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.56666666
+        value: 8.13
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.4
         value: 8.13
         inSlope: 0
         outSlope: 0
@@ -938,10 +965,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.81666666
+        time: 0.56666666
+        value: -43.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.4
         value: -55.6
-        inSlope: -8.800001
-        outSlope: -8.800001
+        inSlope: -12.279071
+        outSlope: -12.279071
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -949,8 +985,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 2
         value: -60.9
-        inSlope: -8.235294
-        outSlope: -8.235294
+        inSlope: -10.677966
+        outSlope: -10.677966
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1219,7 +1255,14 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5833333
+  - time: 0
+    functionName: PlayAnimation
+    data: StartRun
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.65
     functionName: SpawnStainDroplet
     data: 
     objectReferenceParameter: {fileID: 3979993149812425283, guid: 3d97a598d896a504ebf06b601636a55a, type: 3}
@@ -1369,14 +1412,14 @@ AnimationClip:
   - time: 34.55
     functionName: SpawnStainDroplet
     data: 
-    objectReferenceParameter: {fileID: 3979993149812425283, guid: abf7134706a83cf4991754b80cf854de, type: 3}
+    objectReferenceParameter: {fileID: 3979993149812425283, guid: af8750cceae97cf44bbbaa3ed6b31c3d, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 35.516666
     functionName: SpawnStainDroplet
     data: 
-    objectReferenceParameter: {fileID: 3979993149812425283, guid: abf7134706a83cf4991754b80cf854de, type: 3}
+    objectReferenceParameter: {fileID: 3979993149812425283, guid: af8750cceae97cf44bbbaa3ed6b31c3d, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
@@ -1412,6 +1455,13 @@ AnimationClip:
     functionName: SpawnStainDroplet
     data: 
     objectReferenceParameter: {fileID: 3979993149812425283, guid: abf7134706a83cf4991754b80cf854de, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 44.883335
+    functionName: PlayAnimation
+    data: LieDown
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
