@@ -63,7 +63,7 @@ public class OverviewScreen : MonoBehaviour
         pressPedalHint.SetActive(true);
 
 
-        Invoke("ResetRecentlyActiveBool", 1f);
+        Invoke("HideResults", 5f);
     }
 
     void ResetRecentlyActiveBool()
