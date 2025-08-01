@@ -79,7 +79,7 @@ namespace RGSK
         /// <summary>
         /// Provides access to the underlying asset instance.
         /// </summary>
-        public InputActionAsset asset { get; set;  }
+        public InputActionAsset asset { get; set; }
 
         /// <summary>
         /// Constructs a new instance.
@@ -151,7 +151,7 @@ namespace RGSK
                     ""name"": ""Horn"",
                     ""type"": ""Button"",
                     ""id"": ""9e12ca42-9595-44df-841b-b78a0e13d335"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -238,6 +238,17 @@ namespace RGSK
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f2418635-7b8f-446e-ab3c-7cb09956e11d"",
+                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Throttle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""264cd12b-7298-457a-8fa8-fb109f25ad9a"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
@@ -265,6 +276,17 @@ namespace RGSK
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58717c89-9bb3-4284-95e3-55a852aa4902"",
+                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/rz"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Brake"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -518,6 +540,17 @@ namespace RGSK
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad;Controller"",
+                    ""action"": ""Steer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""420bec14-8fc2-44c0-9bb3-5262c24c6a71"",
+                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/stick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""Steer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

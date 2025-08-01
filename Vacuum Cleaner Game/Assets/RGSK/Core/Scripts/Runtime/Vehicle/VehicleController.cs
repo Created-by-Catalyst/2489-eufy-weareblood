@@ -42,13 +42,15 @@ public class VehicleController : RGSKEntityComponent
 
     void OnThrottle(InputAction.CallbackContext context)
     {
-        ThrottleInput = context.ReadValue<float>();
+
+        ThrottleInput = (-context.ReadValue<float>() + 1) / 2;
+        //print("accel " + ThrottleInput);
 
     }
 
     void OnBrake(InputAction.CallbackContext context)
     {
-        BrakeInput = context.ReadValue<float>();
+        BrakeInput = (-context.ReadValue<float>() + 1) / 2;
 
         dynamics.handlingMode = VehicleHandlingMode.Drift;
 

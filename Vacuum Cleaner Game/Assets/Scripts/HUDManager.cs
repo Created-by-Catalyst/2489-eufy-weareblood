@@ -37,6 +37,11 @@ public class HUDManager : MonoBehaviour
         {
             messes[i].GetComponent<Image>().sprite = levelIcons[((GameManager.instance.currentSection - 1) * 3) + i];
         }
+        for (int i = 0; i < pointValues.Length; i++)
+        {
+            pointValues[i].text = (i * 10).ToString();
+        }
+
     }
 
 

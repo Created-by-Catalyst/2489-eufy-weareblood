@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     UIController uiController;
 
     [SerializeField]
-    GameObject[] playerVehicles;
+    public GameObject[] playerVehicles;
     [SerializeField]
     GameObject[] playerCameras;
     [SerializeField]
@@ -43,10 +43,21 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+
+
+        // Or disable all forces
+        // LogitechGSDK.LogiStopAllForces(0);
+
+    }
+
     private void Start()
     {
         PauseControl();
 
+        // Reduce damper force (resistance) to near zero
+        //LogitechGSDK.LogiPlayDamperForce(0, 0); // 0 = no resistance
 
         //DEBUG
         //StartGame();

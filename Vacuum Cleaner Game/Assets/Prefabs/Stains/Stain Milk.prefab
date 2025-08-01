@@ -92,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6938145441948939874, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
       propertyPath: scoreValue
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8206275119519576986, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
       propertyPath: m_Enabled
@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8433064671819635090, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1bb234a7fb0d2314eb3912083f60b954, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
