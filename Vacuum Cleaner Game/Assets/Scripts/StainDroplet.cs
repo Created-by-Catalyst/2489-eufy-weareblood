@@ -15,6 +15,10 @@ public class StainDroplet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.gameObject.tag == "Vehicle") return;
+        if (other.gameObject.layer == 13) return;
+
         GameObject stain = Instantiate(stainPrefab);
 
         Vector3 contactPoint = other.ClosestPoint(transform.position);

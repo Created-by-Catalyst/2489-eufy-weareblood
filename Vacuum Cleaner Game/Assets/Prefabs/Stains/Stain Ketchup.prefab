@@ -87,6 +87,10 @@ PrefabInstance:
       value: Stain Ketchup
       objectReference: {fileID: 0}
     - target: {fileID: 6938145441948939874, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
+      propertyPath: particles
+      value: 
+      objectReference: {fileID: 100002, guid: b9037713bd8bb8347ae0a9ee0be244ed, type: 3}
+    - target: {fileID: 6938145441948939874, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
       propertyPath: stainTier
       value: 2
       objectReference: {fileID: 0}

@@ -50,6 +50,7 @@ MonoBehaviour:
   stainTier: 0
   scoreValue: 10
   description: "Tackle Tough Stains with the HydroJet\u2122 System!"
+  particles: {fileID: 3716275016998676315, guid: 6b37cd66c053f5c438d7a6854a9ee401, type: 3}
 --- !u!1 &973735053013819723
 GameObject:
   m_ObjectHideFlags: 0

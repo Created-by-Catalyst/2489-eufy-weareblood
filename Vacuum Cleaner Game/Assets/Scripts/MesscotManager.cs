@@ -5,6 +5,9 @@ public class MesscotManager : MonoBehaviour
     [HideInInspector]
     public int path = 3;
 
+    [SerializeField]
+    GameObject particles;
+
     public Animator messcotAnimator;
 
     private void Awake()
@@ -14,7 +17,7 @@ public class MesscotManager : MonoBehaviour
 
     public void SpawnStainDroplet(GameObject stainDropletPrefab)
     {
-
+        Instantiate(particles, transform.position, transform.rotation);
         GameObject stainDroplet = Instantiate(stainDropletPrefab);
         stainDroplet.transform.position = transform.position;
 

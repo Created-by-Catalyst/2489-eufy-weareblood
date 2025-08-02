@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: 3
+  particles: {fileID: 8255215019295333937, guid: 139c09de669d89546999f577551dd885, type: 3}
   messcotAnimator: {fileID: 0}
   currentDirection: 0
   slerpSpeed: 5
