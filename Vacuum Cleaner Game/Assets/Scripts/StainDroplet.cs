@@ -9,7 +9,7 @@ public class StainDroplet : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Rigidbody>().AddForce(new Vector3(0, 350, 0));
+        GetComponent<Rigidbody>().AddForce(new Vector3(0, -350, 0));
     }
 
 
