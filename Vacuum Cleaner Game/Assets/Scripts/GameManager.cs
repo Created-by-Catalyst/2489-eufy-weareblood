@@ -90,6 +90,16 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public void IntroAnimations()
+    {
+        messcots[currentSection].GetComponent<MesscotManager>().MesscotIntroAnims();
+    }
+
+    public void IntrosEnded()
+    {
+        uiController.overviewScreen.ShowOverview();
+    }
+
     public void StartGame()
     {
         StartCoroutine(StartTimer(startTime));

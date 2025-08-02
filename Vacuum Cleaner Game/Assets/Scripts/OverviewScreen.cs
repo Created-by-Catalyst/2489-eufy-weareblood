@@ -56,11 +56,9 @@ public class OverviewScreen : MonoBehaviour
     {
         int level = GameManager.instance.currentSection;
 
-        resultsRecentlyActive = true;
         resultsAnim.GetComponent<Image>().sprite = resultsSprites[level];
 
         resultsAnim.SetBool("OverviewShowing", true);
-        pressPedalHint.SetActive(true);
 
 
         Invoke("HideResults", 5f);
@@ -75,12 +73,10 @@ public class OverviewScreen : MonoBehaviour
     {
         int level = GameManager.instance.currentSection;
 
-        if (resultsAnim.GetBool("OverviewShowing") == true && resultsRecentlyActive == false)
-        {
-            resultsAnim.SetBool("OverviewShowing", false);
-            pressPedalHint.SetActive(false);
-            GameManager.instance.GoToNextLevel();
-        }
+
+        resultsAnim.SetBool("OverviewShowing", false);
+        GameManager.instance.GoToNextLevel();
+
 
     }
 

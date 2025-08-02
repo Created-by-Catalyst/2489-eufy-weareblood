@@ -20,6 +20,18 @@ public class MesscotManager : MonoBehaviour
 
     }
 
+    public void MesscotIntroAnims()
+    {
+        GetComponent<Animator>().Play("MesscotIntro");
+        messcotAnimator.SetTrigger("Intro");
+
+    }
+
+    public void MesscotIntroEnded()
+    {
+        GameManager.instance.playerVehicles[GameManager.instance.currentSection].GetComponent<Animator>().Play("EufyIntro");
+    }
+
     public void PlayAnimation(string name)
     {
         messcotAnimator.SetTrigger(name);

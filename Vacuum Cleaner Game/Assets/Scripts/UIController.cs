@@ -31,7 +31,7 @@ public class UIController : MonoBehaviour
 
 
     [SerializeField]
-    OverviewScreen overviewScreen;
+    public OverviewScreen overviewScreen;
 
 
 
@@ -50,7 +50,7 @@ public class UIController : MonoBehaviour
 
     public void NextLevelLoaded()
     {
-        overviewScreen.ShowOverview();
+        GameManager.instance.IntroAnimations();
     }
 
 

@@ -35,6 +35,11 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void EufyIntroEnded()
+    {
+        GameManager.instance.IntrosEnded();
+    }
+
     IEnumerator CameraFovPull()
     {
         float time = 0.4f;

@@ -292,6 +292,17 @@ namespace RGSK
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""99f1c700-e54d-4476-bb85-e6f88c19d638"",
+                    ""path"": ""<HID::Logitech G29 Driving Force Racing Wheel>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""1D Axis"",
                     ""id"": ""95db21c4-507f-42d9-8fb9-464661bde6b7"",
                     ""path"": ""1DAxis"",
@@ -576,7 +587,7 @@ namespace RGSK
                     ""name"": ""ChangePerspective"",
                     ""type"": ""Button"",
                     ""id"": ""5317dc67-3b3a-4101-84ae-ab3a33e0c521"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false

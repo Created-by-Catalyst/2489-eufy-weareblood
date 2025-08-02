@@ -39,7 +39,7 @@ public class HUDManager : MonoBehaviour
         }
         for (int i = 0; i < pointValues.Length; i++)
         {
-            pointValues[i].text = (i * 10).ToString();
+            pointValues[i].text = ((i + 1) * 10).ToString() + "pts";
         }
 
     }
