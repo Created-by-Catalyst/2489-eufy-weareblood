@@ -46,6 +46,13 @@ public class UIController : MonoBehaviour
     {
         GameManager.instance.PauseControl();
         GameManager.instance.LevelLoadTransition();
+        MusicHandler.instance.PlaySong(GameManager.instance.currentSection + 1);
+    }
+
+
+    public void ChangeMusic()
+    {
+        MusicHandler.instance.PlaySong(GameManager.instance.currentSection + 1);
     }
 
     public void NextLevelLoaded()
