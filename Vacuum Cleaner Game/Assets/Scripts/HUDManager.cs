@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
+    public Animator HUDAnimator;
+
     [SerializeField]
     public GameObject ingameHUD;
 
@@ -13,7 +15,7 @@ public class HUDManager : MonoBehaviour
     TMP_Text popupMessages;
 
     [SerializeField]
-    TMP_Text scoreText;
+    public TMP_Text scoreText;
 
     [SerializeField]
     TMP_Text timerText;
@@ -45,9 +47,9 @@ public class HUDManager : MonoBehaviour
     }
 
 
-    public void StainCollected(int newScore, int stainTier, string description)
+    public void StainCollected(int[] newScore, int stainTier, string description)
     {
-        scoreText.text = "Score: " + newScore.ToString();
+        scoreText.text = "Score: " + newScore[3].ToString();
         messes[stainTier].BlinkCycle();
         StopAllCoroutines();
 

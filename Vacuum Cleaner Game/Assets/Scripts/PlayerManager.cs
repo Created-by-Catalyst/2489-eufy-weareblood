@@ -73,11 +73,12 @@ public class PlayerManager : MonoBehaviour
 
     IEnumerator PickupStain(StainManager stainManager)
     {
+        AudioHandler.instance.PlaySound(0);
         yield return new WaitForSeconds(0.3f);
 
         GameManager.instance.AddScore(stainManager.scoreValue, stainManager.stainTier, stainManager.description);
         stainManager.CleanStain();
-
+        AudioHandler.instance.PlaySound(1);
 
         if (cameraFovCoroutine != null) StopCoroutine(cameraFovCoroutine);
         cameraFovCoroutine = StartCoroutine(CameraFovPull());

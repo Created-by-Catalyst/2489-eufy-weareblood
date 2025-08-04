@@ -23,7 +23,6 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Sprite[] levelSplashes;
 
-
     [SerializeField]
     Image levelDesc;
     [SerializeField]
@@ -33,7 +32,10 @@ public class UIController : MonoBehaviour
     [SerializeField]
     public OverviewScreen overviewScreen;
 
-
+    public void PlaySound(int id)
+    {
+        AudioHandler.instance.PlaySound(id);
+    }
 
     public void GoToNextLevel()
     {
@@ -46,7 +48,7 @@ public class UIController : MonoBehaviour
     {
         GameManager.instance.PauseControl();
         GameManager.instance.LevelLoadTransition();
-        MusicHandler.instance.PlaySong(GameManager.instance.currentSection + 1);
+
     }
 
 
@@ -60,6 +62,11 @@ public class UIController : MonoBehaviour
         GameManager.instance.IntroAnimations();
     }
 
+    public void StainCollected(int[] score, int stainTier)
+    {
+        overviewScreen.scores[stainTier].text = score[stainTier].ToString() + "pts";
+        overviewScreen.scores[3].text = score[3].ToString() + "pts";
+    }
 
     public void CameraSceneLoaded()
     {
@@ -101,6 +108,11 @@ public class UIController : MonoBehaviour
         //overviewScreen.HideResults();
     }
 
+
+    public void Confirm()
+    {
+        AudioHandler.instance.PlaySound(2);
+    }
 
 
     public void ShowResults()

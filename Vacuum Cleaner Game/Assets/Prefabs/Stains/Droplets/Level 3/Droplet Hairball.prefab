@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: stainPrefab
       value: 
       objectReference: {fileID: 4018755622692141203, guid: f3165d25e3a13384e96ba7e48d34cbed, type: 3}
+    - target: {fileID: 8080508200015190302, guid: d3c07f75dde1bf845adfd939b1f8a8f0, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080508200015190302, guid: d3c07f75dde1bf845adfd939b1f8a8f0, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 76ae5e9788a5fe245a05f5cbf31bb38c, type: 3}
     - target: {fileID: 8795632965906927509, guid: d3c07f75dde1bf845adfd939b1f8a8f0, type: 3}
       propertyPath: m_Name
       value: Droplet Hairball

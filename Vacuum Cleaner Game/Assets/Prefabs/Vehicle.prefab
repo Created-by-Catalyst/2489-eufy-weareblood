@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 5992032098839771862}
   - component: {fileID: 3625276838846728809}
   - component: {fileID: 2907202711242780733}
+  - component: {fileID: 2902059238707258810}
   m_Layer: 13
   m_Name: Vehicle
   m_TagString: Vehicle
@@ -235,11 +236,11 @@ MonoBehaviour:
   nitrous:
     enabled: 1
     capacity: 1
-    strength: 30
-    depletionRate: 0.1
+    strength: 60
+    depletionRate: 0.2
     autoRegenerate: 1
     regenerationWait: 0.01
-    regenerationRate: 0.1
+    regenerationRate: 0.01
   extra:
     frontAlignment:
       center: 0
@@ -315,6 +316,14 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!81 &2902059238707258810
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118888525199494693}
+  m_Enabled: 1
 --- !u!1 &160471481333009498
 GameObject:
   m_ObjectHideFlags: 0

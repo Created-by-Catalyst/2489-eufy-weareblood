@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stain Bone
       objectReference: {fileID: 0}
+    - target: {fileID: 6063261179316210007, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 76ae5e9788a5fe245a05f5cbf31bb38c, type: 3}
     - target: {fileID: 6938145441948939874, guid: 2143f9d49f585e34fbdf32abf5484812, type: 3}
       propertyPath: stainTier
       value: 1

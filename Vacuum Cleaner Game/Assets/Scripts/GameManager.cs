@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public int score = 0;
+    public int[] score = new int[] { 0, 0, 0, 0 };
+
+    int overallScore = 0;
 
     public int currentSection = 1;
 
@@ -21,7 +23,6 @@ public class GameManager : MonoBehaviour
     GameObject[] playerCameras;
     [SerializeField]
     Animator[] messcots;
-
 
     [SerializeField]
     public InputActionAsset actionMap;
@@ -105,10 +106,22 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartTimer(startTime));
     }
 
+    public void ResetScore()
+    {
+        score = new int[] { 0, 0, 0, 0 };
+
+        hudManager.scoreText.text = "Score: 0";
+    }
+
     public void AddScore(int scoreToAdd, int stainTier, string description)
     {
-        score += scoreToAdd;
+        score[stainTier] += scoreToAdd;
+        score[3] += scoreToAdd;
+
+        uiController.StainCollected(score, stainTier);
         hudManager.StainCollected(score, stainTier, description);
+
+        overallScore = score[3];
     }
 
     float startTime = 45f; // seconds
@@ -116,6 +129,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartTimer(float time)
     {
+        ResetScore();
+
+        AudioHandler.instance.PlaySound(5);
 
         remainingTime = 4;
         while (remainingTime >= 0)
@@ -138,7 +154,9 @@ public class GameManager : MonoBehaviour
 
         remainingTime = time + 1;
 
-        hudManager.ingameHUD.SetActive(true);
+        hudManager.HUDAnimator.Play("HUDIn");
+
+        AudioHandler.instance.PlaySound(4);
 
         while (remainingTime > 0)
         {
@@ -154,6 +172,8 @@ public class GameManager : MonoBehaviour
 
     void FinishLevel()
     {
+        hudManager.HUDAnimator.Play("HUDOut");
+        AudioHandler.instance.PlaySound(4);
         PauseControl();
         uiController.ShowResults();
     }
@@ -174,7 +194,6 @@ public class GameManager : MonoBehaviour
         playerCameras[currentSection].SetActive(true);
         playerVehicles[currentSection].SetActive(true);
 
-        hudManager.ingameHUD.SetActive(false);
         hudManager.UpdateLevelIcons();
     }
 

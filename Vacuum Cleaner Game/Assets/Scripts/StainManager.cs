@@ -8,6 +8,10 @@ public class StainManager : MonoBehaviour
     public string description;
     public GameObject particles;
 
+    private void Start()
+    {
+    }
+
     public void CleanStain()
     {
         Instantiate(particles, transform.position, transform.rotation);

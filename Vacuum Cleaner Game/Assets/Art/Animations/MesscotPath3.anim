@@ -1510,7 +1510,7 @@ AnimationClip:
     messageOptions: 0
   - time: 43.183334
     functionName: PlayAnimation
-    data: JumpUp
+    data: Crouch
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

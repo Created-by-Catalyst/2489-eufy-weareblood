@@ -21,7 +21,7 @@ public class OverviewScreen : MonoBehaviour
     Sprite[] resultsSprites;
 
     [SerializeField]
-    TMP_Text[] scores;
+    public TMP_Text[] scores;
 
 
     public void ShowOverview()
@@ -60,6 +60,7 @@ public class OverviewScreen : MonoBehaviour
 
         resultsAnim.SetBool("OverviewShowing", true);
 
+        MusicHandler.instance.PlaySong(GameManager.instance.currentSection + 2);
 
         Invoke("HideResults", 5f);
     }

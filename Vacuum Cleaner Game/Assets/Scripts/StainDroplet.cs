@@ -5,10 +5,12 @@ public class StainDroplet : MonoBehaviour
 
     [SerializeField]
     GameObject stainPrefab;
+    public AudioSource splatSound;
 
 
     private void Start()
     {
+        splatSound.Play();
         GetComponent<Rigidbody>().AddForce(new Vector3(0, -350, 0));
     }
 

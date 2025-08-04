@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MesscotManager : MonoBehaviour
 {
@@ -10,8 +12,17 @@ public class MesscotManager : MonoBehaviour
 
     public Animator messcotAnimator;
 
+    private AudioSource audioSource;
+
+    public AudioClip[] sounds;
+
+    public Image titleImage;
+
+    public Sprite[] titleSprites;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         GetComponent<Animator>().SetInteger("Path", path);
     }
 
@@ -27,7 +38,8 @@ public class MesscotManager : MonoBehaviour
     {
         GetComponent<Animator>().Play("MesscotIntro");
         messcotAnimator.SetTrigger("Intro");
-
+        audioSource.PlayOneShot(sounds[0]);
+        titleImage.sprite = titleSprites[GameManager.instance.currentSection];
     }
 
     public void MesscotIntroEnded()
@@ -38,6 +50,19 @@ public class MesscotManager : MonoBehaviour
     public void PlayAnimation(string name)
     {
         messcotAnimator.SetTrigger(name);
+
+        if (name == "StartRun") StartCoroutine(PathStarted());
+    }
+
+
+    IEnumerator PathStarted()
+    {
+        for (int i = 1; i < sounds.Length; i++)
+        {
+            yield return new WaitForSeconds(45 / sounds.Length);
+
+            audioSource.PlayOneShot(sounds[i]);
+        }
     }
 
 
