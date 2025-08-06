@@ -236,7 +236,7 @@ MonoBehaviour:
   nitrous:
     enabled: 1
     capacity: 1
-    strength: 60
+    strength: 15
     depletionRate: 0.2
     autoRegenerate: 1
     regenerationWait: 0.01

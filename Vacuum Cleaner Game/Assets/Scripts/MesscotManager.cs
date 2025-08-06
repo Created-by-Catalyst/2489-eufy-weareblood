@@ -149,8 +149,8 @@ public class MesscotManager : MonoBehaviour
 
         //messcotAnimator.SetLayerWeight(3, 1 - (left + right));
 
-        messcotAnimator.SetLayerWeight(2, left);
-        messcotAnimator.SetLayerWeight(3, right);
+        //messcotAnimator.SetLayerWeight(2, left);
+        //messcotAnimator.SetLayerWeight(3, right);
 
     }
 

@@ -1,10 +1,13 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public static UIController instance;
+
     [SerializeField]
     Animator uiAnimations;
 
@@ -28,9 +31,66 @@ public class UIController : MonoBehaviour
     [SerializeField]
     Image levelSplash;
 
+    [SerializeField]
+    Leaderboard leaderboard;
+    [SerializeField]
+    Leaderboard miniLeaderboard;
+
+    [SerializeField]
+    KeyboardManager keyboardManager;
 
     [SerializeField]
     public OverviewScreen overviewScreen;
+
+    [SerializeField]
+    TMP_Text[] finalResultsScores;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
+    public void PlayAnimation(string anim)
+    {
+        uiAnimations.Play(anim);
+    }
+
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
+    public void GoToFinalResultsScreen()
+    {
+        PlayAnimation("ResultsAnim");
+
+        for (int i = 0; i < 3; i++)
+        {
+            finalResultsScores[i].text = GameManager.instance.roomScores[i].ToString();
+        }
+        finalResultsScores[3].text = GameManager.instance.overallScore.ToString();
+    }
+
+    public void GoToLeaderboard(string name, int score)
+    {
+        leaderboard.AddEntry(name, score);
+
+        PlayAnimation("ResultsTransition");
+
+        StartCoroutine(MusicHandler.instance.FadeOut(MusicHandler.instance.musicSources[3], 5));
+
+        Invoke("EndGame", 6f);
+    }
+    void EndGame()
+    {
+        leaderboard.SaveToFile();
+        PlayAnimation("ResultsOut");
+    }
+
 
     public void PlaySound(int id)
     {

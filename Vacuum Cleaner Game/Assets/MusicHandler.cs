@@ -7,7 +7,7 @@ public class MusicHandler : MonoBehaviour
     public static MusicHandler instance;
 
     [SerializeField]
-    AudioSource[] musicSources;
+    public AudioSource[] musicSources;
 
     private void Start()
     {
@@ -21,6 +21,7 @@ public class MusicHandler : MonoBehaviour
 
     public void PlaySong(int sourceID)
     {
+        if (sourceID > musicSources.Length - 1) return;
         AudioSource source = musicSources[sourceID];
 
 
@@ -38,7 +39,7 @@ public class MusicHandler : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOut(AudioSource source, float duration)
+    public IEnumerator FadeOut(AudioSource source, float duration)
     {
         float startVolume = source.volume;
 

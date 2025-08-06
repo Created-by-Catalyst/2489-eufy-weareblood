@@ -27,6 +27,11 @@ public class VehicleController : RGSKEntityComponent
 
     void Awake()
     {
+
+    }
+
+    void OnEnable()
+    {
         _actions = new InputActions();
 
         _actions.asset = actionMap;
@@ -38,6 +43,15 @@ public class VehicleController : RGSKEntityComponent
         _actions.Vehicle.Steer.performed += OnSteer;
         _actions.Vehicle.Boost.performed += OnBoost;
         _actions.Vehicle.Handbrake.performed += OnHandbrake;
+    }
+
+    void OnDisable()
+    {
+        _actions.Vehicle.Throttle.performed -= OnThrottle;
+        _actions.Vehicle.Brake.performed -= OnBrake;
+        _actions.Vehicle.Steer.performed -= OnSteer;
+        _actions.Vehicle.Boost.performed -= OnBoost;
+        _actions.Vehicle.Handbrake.performed -= OnHandbrake;
     }
 
     void OnThrottle(InputAction.CallbackContext context)
@@ -276,15 +290,7 @@ public class VehicleController : RGSKEntityComponent
         IsInitialized = true;
     }
 
-    void OnEnable()
-    {
-        RGSKEvents.OnCameraTargetChanged.AddListener(OnCameraTargetChanged);
-    }
 
-    void OnDisable()
-    {
-        RGSKEvents.OnCameraTargetChanged.RemoveListener(OnCameraTargetChanged);
-    }
 
     void Start()
     {

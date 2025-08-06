@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stain
   - Vehicle
+  - Floor
   layers:
   - Default
   - TransparentFX

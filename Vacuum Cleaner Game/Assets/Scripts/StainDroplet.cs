@@ -18,8 +18,11 @@ public class StainDroplet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag == "Vehicle") return;
-        if (other.gameObject.layer == 13) return;
+        //if (other.gameObject.tag == "Vehicle") return;
+        //if (other.gameObject.layer == 13) return;
+
+
+        if (other.gameObject.tag != "Floor") return;
 
         GameObject stain = Instantiate(stainPrefab);
 

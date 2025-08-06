@@ -2,15 +2,19 @@ using RGSK;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public int[] score = new int[] { 0, 0, 0, 0 };
 
-    int overallScore = 0;
+    public int[] roomScores = new int[] { 0, 0, 0 };
+
+    public int overallScore = 0;
 
     public int currentSection = 1;
+
 
     [SerializeField]
     HUDManager hudManager;
@@ -34,6 +38,12 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
+
+
+    }
+
+    private void OnEnable()
+    {
         _actions = new InputActions();
 
         _actions.asset = actionMap;
@@ -41,21 +51,29 @@ public class GameManager : MonoBehaviour
         _actions.Vehicle.Enable();
 
         _actions.Vehicle.Throttle.performed += OnThrottle;
-
+        _actions.Vehicle.Pause.performed += ResetGame;
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
+    {
+        _actions.Vehicle.Throttle.performed -= OnThrottle;
+        _actions.Vehicle.Pause.performed -= ResetGame;
+    }
+
+    private void ResetGame(InputAction.CallbackContext context)
     {
 
-
-        // Or disable all forces
-        // LogitechGSDK.LogiStopAllForces(0);
+        SceneManager.LoadScene(0);
 
     }
+
+    bool uiControl = false;
 
     private void Start()
     {
         PauseControl();
+
+        Invoke("EnableUIControl", 1f);
 
         // Reduce damper force (resistance) to near zero
         //LogitechGSDK.LogiPlayDamperForce(0, 0); // 0 = no resistance
@@ -64,6 +82,10 @@ public class GameManager : MonoBehaviour
         //StartGame();
     }
 
+    private void EnableUIControl()
+    {
+        uiControl = true;
+    }
 
     public void PauseControl()
     {
@@ -84,10 +106,11 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     void OnThrottle(InputAction.CallbackContext context)
     {
         //ThrottleInput = context.ReadValue<float>();
-        uiController.PedalPressed();
+        if (uiControl) uiController.PedalPressed();
     }
 
 
@@ -108,9 +131,11 @@ public class GameManager : MonoBehaviour
 
     public void ResetScore()
     {
+        overallScore += score[3];
+        roomScores[currentSection] = score[3];
+
         score = new int[] { 0, 0, 0, 0 };
 
-        hudManager.scoreText.text = "Score: 0";
     }
 
     public void AddScore(int scoreToAdd, int stainTier, string description)
@@ -121,7 +146,6 @@ public class GameManager : MonoBehaviour
         uiController.StainCollected(score, stainTier);
         hudManager.StainCollected(score, stainTier, description);
 
-        overallScore = score[3];
     }
 
     float startTime = 45f; // seconds
@@ -129,7 +153,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartTimer(float time)
     {
-        ResetScore();
 
         AudioHandler.instance.PlaySound(5);
 
@@ -180,7 +203,16 @@ public class GameManager : MonoBehaviour
 
     public void GoToNextLevel()
     {
-        if (currentSection == 2) return;
+
+        ResetScore();
+
+        if (currentSection == 2)
+        {
+
+            uiController.GoToFinalResultsScreen();
+
+            return;
+        }
 
         uiController.GoToNextLevel();
     }
@@ -194,6 +226,7 @@ public class GameManager : MonoBehaviour
         playerCameras[currentSection].SetActive(true);
         playerVehicles[currentSection].SetActive(true);
 
+        hudManager.scoreText.text = "Score: 0";
         hudManager.UpdateLevelIcons();
     }
 
