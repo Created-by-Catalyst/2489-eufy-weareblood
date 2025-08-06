@@ -33,7 +33,15 @@ public class OverviewScreen : MonoBehaviour
         overviewAnim.SetBool("OverviewShowing", true);
         //pressPedalHint.SetActive(true);
 
+
+
+
         Invoke("HideOverview", 6.5f);
+    }
+
+    void PlayResultsVO()
+    {
+        AudioHandler.instance.PlaySound(10);
     }
 
     public void HideOverview()
@@ -61,6 +69,9 @@ public class OverviewScreen : MonoBehaviour
         resultsAnim.SetBool("OverviewShowing", true);
 
         //MusicHandler.instance.PlaySong(GameManager.instance.currentSection + 2);
+
+
+        Invoke("PlayResultsVO", 1f);
 
         Invoke("HideResults", 5f);
     }

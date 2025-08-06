@@ -151,6 +151,8 @@ public class GameManager : MonoBehaviour
     float startTime = 45f; // seconds
     float remainingTime;
 
+    bool fiveSecondCountdownAvailable = true;
+
     IEnumerator StartTimer(float time)
     {
 
@@ -181,8 +183,18 @@ public class GameManager : MonoBehaviour
 
         AudioHandler.instance.PlaySound(4);
 
+        fiveSecondCountdownAvailable = true;
+
         while (remainingTime > 0)
         {
+
+            if(remainingTime < 6 && fiveSecondCountdownAvailable == true)
+            {
+                fiveSecondCountdownAvailable = false;
+                StartCoroutine(MusicHandler.instance.FadeOut(MusicHandler.instance.musicSources[currentSection + 1], 5));
+                AudioHandler.instance.PlaySound(12);
+            }
+
             remainingTime -= Time.deltaTime;
             hudManager.UpdateTimeText(remainingTime);
             yield return null;

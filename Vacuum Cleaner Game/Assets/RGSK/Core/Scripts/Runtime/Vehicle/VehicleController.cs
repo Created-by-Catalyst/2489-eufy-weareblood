@@ -25,11 +25,6 @@ public class VehicleController : RGSKEntityComponent
     [SerializeField]
     public InputActions _actions;
 
-    void Awake()
-    {
-
-    }
-
     void OnEnable()
     {
         _actions = new InputActions();
@@ -44,6 +39,7 @@ public class VehicleController : RGSKEntityComponent
         _actions.Vehicle.Boost.performed += OnBoost;
         _actions.Vehicle.Handbrake.performed += OnHandbrake;
     }
+
 
     void OnDisable()
     {
