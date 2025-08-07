@@ -91,7 +91,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (var vehicle in playerVehicles)
         {
-            vehicle.GetComponent<VehicleController>().enabled = false;
+            //vehicle.GetComponent<VehicleController>().enabled = false;
+            vehicle.GetComponent<VehicleController>().engineSoundActive = false;
             vehicle.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
@@ -100,7 +101,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (var vehicle in playerVehicles)
         {
-            vehicle.GetComponent<VehicleController>().enabled = true;
+
+            vehicle.GetComponent<VehicleController>().engineSoundActive = true;
             vehicle.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
@@ -188,10 +190,10 @@ public class GameManager : MonoBehaviour
         while (remainingTime > 0)
         {
 
-            if(remainingTime < 6 && fiveSecondCountdownAvailable == true)
+            if (remainingTime < 6 && fiveSecondCountdownAvailable == true)
             {
                 fiveSecondCountdownAvailable = false;
-                StartCoroutine(MusicHandler.instance.FadeOut(MusicHandler.instance.musicSources[currentSection + 1], 5));
+                //StartCoroutine(MusicHandler.instance.FadeOut(MusicHandler.instance.musicSources[currentSection + 1], 5));
                 AudioHandler.instance.PlaySound(12);
             }
 

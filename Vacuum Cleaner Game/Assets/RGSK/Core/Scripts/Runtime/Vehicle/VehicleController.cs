@@ -43,6 +43,8 @@ public class VehicleController : RGSKEntityComponent
 
     void OnDisable()
     {
+        print("DISABLED");
+
         _actions.Vehicle.Throttle.performed -= OnThrottle;
         _actions.Vehicle.Brake.performed -= OnBrake;
         _actions.Vehicle.Steer.performed -= OnSteer;
@@ -50,10 +52,14 @@ public class VehicleController : RGSKEntityComponent
         _actions.Vehicle.Handbrake.performed -= OnHandbrake;
     }
 
+    [SerializeField]
+    AudioSource engineLoop;
+
     void OnThrottle(InputAction.CallbackContext context)
     {
 
         ThrottleInput = (-context.ReadValue<float>() + 1) / 2;
+
         //print("accel " + ThrottleInput);
 
     }
@@ -62,7 +68,7 @@ public class VehicleController : RGSKEntityComponent
     {
         BrakeInput = (-context.ReadValue<float>() + 1) / 2;
 
-        dynamics.handlingMode = VehicleHandlingMode.Drift;
+        //dynamics.handlingMode = VehicleHandlingMode.Drift;
 
 
     }
@@ -297,15 +303,33 @@ public class VehicleController : RGSKEntityComponent
 
     }
 
-
+    public bool engineSoundActive = false;
 
     void FixedUpdate()
     {
 
-        if (SteerInput > -0.1 && SteerInput < 0.1)
+
+        if (engineSoundActive)
         {
-            dynamics.handlingMode = VehicleHandlingMode.Grip;
+            float targetVolume = ThrottleInput * 0.06f;
+            float targetPitch = ThrottleInput + 0.5f;
+
+            engineLoop.volume = Mathf.Lerp(engineLoop.volume, targetVolume, Time.deltaTime * 2);
+            engineLoop.pitch = Mathf.Lerp(engineLoop.pitch, targetPitch, Time.deltaTime * 2);
         }
+        else
+        {
+            float targetVolume = 0;
+            float targetPitch = 0;
+
+            engineLoop.volume = Mathf.Lerp(engineLoop.volume, targetVolume, Time.deltaTime * 2);
+            engineLoop.pitch = Mathf.Lerp(engineLoop.pitch, targetPitch, Time.deltaTime * 2);
+        }
+
+        //if (SteerInput > -0.1 && SteerInput < 0.1)
+        //{
+        //    dynamics.handlingMode = VehicleHandlingMode.Grip;
+        //}
 
         foreach (var c in _components)
         {

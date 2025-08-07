@@ -1477,14 +1477,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 10.033334
+  - time: 10.8
     functionName: SpawnStainDroplet
     data: 
     objectReferenceParameter: {fileID: 3979993149812425283, guid: 0d00e0349ebfde4459e212d5e222de07, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 11.15
+  - time: 11.55
     functionName: SpawnStainDroplet
     data: 
     objectReferenceParameter: {fileID: 3979993149812425283, guid: 0d00e0349ebfde4459e212d5e222de07, type: 3}

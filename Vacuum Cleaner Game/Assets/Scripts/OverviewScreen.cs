@@ -26,8 +26,10 @@ public class OverviewScreen : MonoBehaviour
 
     public void ShowOverview()
     {
+        AudioHandler.instance.PlaySound(4);
         int level = GameManager.instance.currentSection;
 
+        AudioHandler.instance.PlaySound(7 + level);
         overviewAnim.GetComponent<Image>().sprite = overviewSprites[level];
 
         overviewAnim.SetBool("OverviewShowing", true);
@@ -46,6 +48,7 @@ public class OverviewScreen : MonoBehaviour
 
     public void HideOverview()
     {
+        AudioHandler.instance.PlaySound(4);
         int level = GameManager.instance.currentSection;
 
         if (overviewAnim.GetBool("OverviewShowing") == true)
